@@ -3,14 +3,34 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext)
+    const [error, setError] = useState("")
+    const { createUser, updateUser, googleLogin, githubLogin } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
     // const navigate = useNavigate()
+
+    const handleGoogle = () => {
+        setError("");
+        googleLogin()
+            .then((result) => {
+                console.log(result.user);
+            })
+            .catch((error) => setError(error.message));
+    };
+
+    const handleGithub = () => {
+        setError("");
+        githubLogin()
+            .then((result) => {
+                console.log(result.user);
+            })
+            .catch((error) => setError(error.message));
+    };
 
     const handleSignUp = data => {
         console.log(data);
@@ -79,9 +99,12 @@ const SignUp = () => {
                     <input className='btn btn-info w-full mt-6' value="Sign Up" type="submit" />
                     {signUpError && <p className='text-red-600'> {signUpError}</p>}
                 </form>
-                <p>Already have an account<Link to='/login' className='text-accent'> Please Log In</Link></p>
+                <p className='mt-2'>Already have an account<Link to='/login' className='text-accent'> Please Log In</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <div className='mx-12'>
+                    <button onClick={handleGoogle} className="btn btn-outline btn-primary"><span className='mr-2'><FaGoogle /></span>Google</button>
+                    <button onClick={handleGithub} className="btn btn-outline btn-primary ml-2"><span className='mr-2'><FaGithub /></span>Github</button>
+                </div>
             </div>
         </div>
     );

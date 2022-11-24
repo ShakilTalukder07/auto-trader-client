@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Alex",
+        "title": "Tesla-Q7-Gaadify",
+        "img": "https://ibb.co/mTSHxJV",
+        "location":"Uttara, sector 7",
+        "original price": "20000",
+        "resale price": "15000",
+        "usage time": "1 year",
+        "time it get posted": "24 November,2022"
+    },
+    {
+        "name": "Morgan",
+        "title": "Tesla-Q7",
+        "img": "https://ibb.co/3ms5pZS",
+        "location":"Uttara, sector 7",
+        "original price": "15000",
+        "resale price": "12000",
+        "usage time": "1.5 year",
+        "time it get posted": "24 November,2022"
+    },
+    {
+        "name": "John Carie",
+        "title": "Tesla-mtm",
+        "img": "https://ibb.co/J3WPXvw",
+        "location":"Uttara, sector 7",
+        "original price": "20000",
+        "resale price": "15000",
+        "usage time": "1 year",
+        "time it get posted": "24 November,2022"
+    }
+]
