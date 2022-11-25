@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
@@ -12,12 +12,17 @@ const SignUp = () => {
     const { createUser, updateUser, googleLogin, githubLogin } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
-    // const navigate = useNavigate()
+
+    const location = useLocation();
+    const navigate = useNavigate()
+
+    const from = location.state?.from?.pathname || '/'
 
     const handleGoogle = () => {
         setError("");
         googleLogin()
             .then((result) => {
+                navigate(from, { replace: true })
                 console.log(result.user);
             })
             .catch((error) => setError(error.message));
@@ -27,6 +32,7 @@ const SignUp = () => {
         setError("");
         githubLogin()
             .then((result) => {
+                navigate(from, { replace: true })
                 console.log(result.user);
             })
             .catch((error) => setError(error.message));
@@ -46,6 +52,7 @@ const SignUp = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email)
+                        navigate(from, { replace: true })
                     })
                     .catch(error => console.error(error))
             })

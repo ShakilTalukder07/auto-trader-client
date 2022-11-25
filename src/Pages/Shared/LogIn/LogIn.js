@@ -27,6 +27,7 @@ const Login = () => {
         setLoginError("");
         googleLogin()
             .then((result) => {
+                navigate(from, { replace: true })
                 console.log(result.user);
             })
             .catch((error) => setLoginError(error.message));
@@ -36,6 +37,7 @@ const Login = () => {
         setLoginError("");
         githubLogin()
             .then((result) => {
+                navigate(from, { replace: true })
                 console.log(result.user);
             })
             .catch((error) => setLoginError(error.message));
@@ -48,8 +50,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
                 setLoginUserEmail(data.email);
-
             })
             .catch(error => setLoginError(error.message))
     }

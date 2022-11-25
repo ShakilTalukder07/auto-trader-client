@@ -36,8 +36,9 @@ const EveryCategories = () => {
             {
                 bookingCar &&
                 <BookingModal
-            bookingCar={bookingCar}
-            ></BookingModal>
+                    bookingCar={bookingCar}
+                    setBookingCar={setBookingCar}
+                ></BookingModal>
             }
         </div>
     );

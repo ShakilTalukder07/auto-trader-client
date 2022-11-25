@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
 
-const BookingModal = ({ bookingCar }) => {
-    const { name, resale_price, location, contact_number } = bookingCar;
-    // console.log(bookingCar);
+const BookingModal = ({ bookingCar, setBookingCar }) => {
+    const { name, resale_price, location } = bookingCar;
+    const { user } = useContext(AuthContext)
 
-    const handleBooking = event =>{
+    const handleBooking = event => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value;
@@ -13,7 +14,18 @@ const BookingModal = ({ bookingCar }) => {
         const itemPrice = form.itemPrice.value;
         const number = form.number.value;
         const meetingLocation = form.meetingLocation.value;
-        console.log(name, email, itemName, itemPrice, number, meetingLocation);
+        // console.log(name, email, itemName, itemPrice, number, meetingLocation);
+
+        const booking = {
+            userName: name,
+            userEmail: email,
+            itemName,
+            itemPrice,
+            number,
+            location
+        }
+        console.log(booking);
+        setBookingCar(null)
     }
 
     return (
@@ -26,7 +38,7 @@ const BookingModal = ({ bookingCar }) => {
                         <label className="label">
                             <span className="label-text">Your Name</span>
                         </label>
-                        <input type="text" name='name' placeholder="User Name" className="input input-bordered w-full text-lg font-bold" />
+                        <input type="text" value={user.name} name='name' placeholder="User Name" className="input input-bordered w-full text-lg font-bold" />
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
@@ -40,13 +52,13 @@ const BookingModal = ({ bookingCar }) => {
                         </label>
                         <input type="text" name='itemPrice' value={resale_price} disabled placeholder="Item Price" className="input input-bordered w-full text-lg font-bold" />
                         <label className="label">
-                            <span className="label-text">Contact Number</span>
+                            <span className="label-text">Sellers Contact Number</span>
                         </label>
-                        <input type="text" name='number' value={contact_number} disabled placeholder="Phone Number" className="input input-bordered w-full text-lg font-bold" />
+                        <input type="text" name='number' placeholder="Phone Number" className="input input-bordered w-full" />
                         <label className="label">
                             <span className="label-text">Meeting Location</span>
                         </label>
-                        <input type="text" name='meetingLocation' value={location} disabled  placeholder="Location" className="input input-bordered w-full text-lg font-bold" />
+                        <input type="text" name='meetingLocation' placeholder="Location" className="input input-bordered w-full" />
                         <br />
                         <input className='btn btn-ghost bg-sky-400 w-full mx-w-xs' type="submit" value="Submit" />
                     </form>
