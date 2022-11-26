@@ -2,7 +2,7 @@
     {
         "category_name": "audi",
         "name": "Audi-Q-7",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/Gvb7n2r/audi1.jpg",
         "location": "Uttara, sector-7",
         "original_price": 40000,
         "resale_price": 30000,
@@ -15,7 +15,7 @@
     {
         "category_name": "audi",
         "name": "Audi-8",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/kgzbZCp/audi2.jpg",
         "location": "Gulshan read-2",
         "original_price": 380000,
         "resale_price": 350000,
@@ -28,7 +28,7 @@
     {
         "category_name": "audi",
         "name": "Audi-R-1",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/J7wrPYr/audi3.jpg",
         "location": "Uttara, sector-2",
         "original_price": 30000,
         "resale_price": 20000,
@@ -41,7 +41,7 @@
     {
         "category_name": "bmw",
         "name": "BMW-R-1",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/g3NdD8j/bmw1.jpg",
         "location": "Uttara, sector-2",
         "original_price": 30000,
         "resale_price": 20000,
@@ -54,7 +54,7 @@
     {
         "category_name": "bmw",
         "name": "BMW-i8",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/DQ7zS8X/bmw2.jpg",
         "location": "Uttara, sector-2",
         "original_price": 100000,
         "resale_price": 120000,
@@ -67,7 +67,7 @@
     {
         "category_name": "bmw",
         "name": "BMW-R",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/PjQ37T4/bmw3.jpg",
         "location": "Uttara, sector-2",
         "original_price": 120000,
         "resale_price": 100000,
@@ -80,7 +80,7 @@
     {
         "category_name": "tesla",
         "name": "Tesla-R",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/S3MHx17/tesla1.jpg",
         "location": "Uttara, sector-6",
         "original_price": 30000,
         "resale_price": 20000,
@@ -93,7 +93,7 @@
     {
         "category_name": "tesla",
         "name": "Tesla-vamos",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/jHW47VN/tesla2.jpg",
         "location": "Banani, road-2",
         "original_price": 30500,
         "resale_price": 20200,
@@ -106,7 +106,7 @@
     {
         "category_name": "tesla",
         "name": "Tesla-T8",
-        "image": "https://iili.io/HFsaGSV.jpg",
+        "image": "https://i.ibb.co/jHW47VN/tesla2.jpg",
         "location": "Uttara, sector-5",
         "original_price": 20000,
         "resale_price": 15000,

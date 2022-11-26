@@ -14,45 +14,46 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element:<Main></Main>,
-        errorElement:<DisplayError></DisplayError>,
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             {
-                path:'/',
-                element:<Home></Home>
+                path: '/',
+                element: <Home></Home>
             },
             {
-                path:'/serviceAndTips',
-                element:<Service></Service>
+                path: '/serviceAndTips',
+                element: <Service></Service>
             },
             {
-                path:'/blogs',
-                element:<Blogs></Blogs>
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
-                path:'/signup',
-                element:<SignUp></SignUp>
+                path: '/signup',
+                element: <SignUp></SignUp>
             },
             {
-                path:'/login',
-                element:<LogIn></LogIn>
+                path: '/login',
+                element: <LogIn></LogIn>
             },
             {
-                path:'/category/:id',
-                element:<PrivateRoutes><EveryCategories></EveryCategories></PrivateRoutes>,
-                loader: ({params})=> fetch(`http://localhost:5000/category/${params.id}`)
+                path: '/category/:id',
+                element: <PrivateRoutes><EveryCategories></EveryCategories></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             }
         ]
     },
     {
-        path:'/dashboard',
-        element:<DashboardLayout></DashboardLayout>,
-        errorElement:<DisplayError></DisplayError>,
-        children:[
+        path: '/dashboard',
+        element: <DashboardLayout></DashboardLayout>,
+        errorElement: <DisplayError></DisplayError>,
+        children: [
             {
-                path:'/dashboard',
-                element:<MyOrders></MyOrders>
+                path: '/dashboard',
+                element: <MyOrders></MyOrders>,
+                loader: () => fetch(`http://localhost:5000/cars`)
             }
         ]
     }

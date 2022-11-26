@@ -41,7 +41,7 @@ const SignUp = () => {
     const handleSignUp = data => {
         console.log(data);
         setSignUpError('');
-        createUser(data.email, data.password)
+        createUser(data.email, data.password, data.user)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -51,16 +51,27 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email)
-                        navigate('/')
+                        saveUser(data.name, data.email, data.user)
                     })
                     .catch(error => console.error(error))
             })
             .catch(error => setSignUpError(error))
     }
 
-    const saveUser = (name, email) => {
-
+    const saveUser = (name, email, user) => {
+        const userData = { name, email, user }
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('save user', data);
+                navigate('/')
+            })
     }
 
     return (
@@ -82,8 +93,6 @@ const SignUp = () => {
                         <option selected value='buyer' >Buyer</option>
                         <option value='seller'>Seller</option>
                     </select>
-                    {/* {selectedOption} */}
-
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>
                         <input {...register("email", {

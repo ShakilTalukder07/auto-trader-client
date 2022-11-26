@@ -62,13 +62,12 @@ const Login = () => {
                 <h2 className='text-2xl text-center font-bold'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
-                        <label className="label"> <span className="label-text">Email</span> </label>
+                        <label className="label"><span className="label-text">Email</span> </label>
                         <input className="input input-bordered w-full max-w-xs" type="email"
                             {...register("email", {
                                 required: "Email Address is required"
                             })} />
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
-
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Password</span> </label>
