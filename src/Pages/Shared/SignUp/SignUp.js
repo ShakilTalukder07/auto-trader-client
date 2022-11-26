@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import useToken from '../../../hooks/useToken';
 
 const SignUp = () => {
 
@@ -12,9 +13,14 @@ const SignUp = () => {
     const { createUser, updateUser, googleLogin, githubLogin } = useContext(AuthContext)
     const [signUpError, setSignUpError] = useState('');
     const [createUserEmail, setCreateUserEmail] = useState('')
-
+    const [token] = useToken(createUserEmail);
     const location = useLocation();
     const navigate = useNavigate()
+
+    if(token){
+        navigate('/')
+    }
+
 
     const from = location.state?.from?.pathname || '/'
 
@@ -69,10 +75,11 @@ const SignUp = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('save user', data);
-                navigate('/')
+                setCreateUserEmail(email);
             })
     }
+
+    
 
     return (
         <div className='h-[800px] flex justify-center items-center'>

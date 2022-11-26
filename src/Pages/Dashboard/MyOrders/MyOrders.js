@@ -12,7 +12,11 @@ const MyOrders = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url)
+            const res = await fetch(url,{
+                headers:{
+                    authorization : `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
             const data = await res.json()
             return data;
         }
@@ -42,15 +46,14 @@ const MyOrders = () => {
                         </thead>
                         <tbody>
                             {
-                                bookings.length && bookings.map((booking, i) => <tr key={booking._id}>
-                                    {/* <td>{i+1}</td> */}
+                                bookings.length && bookings.map((booking) => <tr key={booking._id}>
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
                                                 <div className="w-24 rounded">
                                                     {
-                                                        cars.length && cars.map(car =>
-                                                            <img src={car.image} alt='' />)
+                                                        cars?.length && cars.map(car =>
+                                                            <img src={car?.image} alt='' />)
                                                     }
                                                 </div>
                                             </div>
