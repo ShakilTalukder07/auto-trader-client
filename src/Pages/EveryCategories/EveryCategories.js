@@ -17,7 +17,6 @@ const EveryCategories = () => {
             .then(res => res.json())
     })
 
-
     if (isLoading) {
         <Loading></Loading>
     }
@@ -38,6 +37,7 @@ const EveryCategories = () => {
                 <BookingModal
                     bookingCar={bookingCar}
                     setBookingCar={setBookingCar}
+                    refetch={refetch}
                 ></BookingModal>
             }
         </div>

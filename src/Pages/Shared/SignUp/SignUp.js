@@ -52,7 +52,7 @@ const SignUp = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email)
-                        navigate(from, { replace: true })
+                        navigate('/')
                     })
                     .catch(error => console.error(error))
             })
@@ -75,17 +75,14 @@ const SignUp = () => {
                         })} className="input input-bordered w-full max-w-xs" type="text" />
                         {errors.name && <p className='text-red-600'>{errors.name.message}</p>}
                     </div>
-
                     <label className="label"> <span className="label-text">SignUp as:</span></label>
-                    <select className="select select-bordered w-full max-w-xs">
-                        <option {...register("buyer", {
-                            required: "Is required",
-                        })}>Buyer</option>
-                        <option {...register("seller", {
-                            required: "Is required"
-                        })}>Seller</option>
+                    <select className="select select-bordered w-full max-w-xs"
+                        {...register('user', { required: 'User is required' })}
+                    >
+                        <option selected value='buyer' >Buyer</option>
+                        <option value='seller'>Seller</option>
                     </select>
-
+                    {/* {selectedOption} */}
 
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Email</span></label>

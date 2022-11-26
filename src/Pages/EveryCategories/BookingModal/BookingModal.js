@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
-const BookingModal = ({ bookingCar, setBookingCar }) => {
-    const { name, resale_price, location } = bookingCar;
+const BookingModal = ({ bookingCar, setBookingCar, refetch }) => {
+    const { name, resale_price } = bookingCar;
     const { user } = useContext(AuthContext)
 
     const handleBooking = event => {
@@ -22,10 +23,26 @@ const BookingModal = ({ bookingCar, setBookingCar }) => {
             itemName,
             itemPrice,
             number,
-            location
+            meetingLocation
         }
         console.log(booking);
-        setBookingCar(null)
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data.acknowledged)
+                if (data.acknowledged) {
+                    setBookingCar(null)
+                    toast.success("Booking Confirm")
+                    refetch()
+                }
+            })
     }
 
     return (
@@ -38,11 +55,11 @@ const BookingModal = ({ bookingCar, setBookingCar }) => {
                         <label className="label">
                             <span className="label-text">Your Name</span>
                         </label>
-                        <input type="text" value={user.name} name='name' placeholder="User Name" className="input input-bordered w-full text-lg font-bold" />
+                        <input type="text" defaultValue={user?.displayName} disabled name='name' placeholder="User Name" className="input input-bordered w-full text-lg font-bold" />
                         <label className="label">
                             <span className="label-text">Your Email</span>
                         </label>
-                        <input type="text" name='email' placeholder="User Email" className="input input-bordered w-full text-lg font-bold" />
+                        <input type="text" defaultValue={user?.email} disabled name='email' placeholder="User Email" className="input input-bordered w-full text-lg font-bold" />
                         <label className="label">
                             <span className="label-text">Item Name</span>
                         </label>

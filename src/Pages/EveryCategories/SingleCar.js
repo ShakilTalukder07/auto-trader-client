@@ -14,7 +14,7 @@ const SingleCar = ({ car, setBookingCar }) => {
 
     return (
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <figure><img src={image} alt="Car" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p><span className='font-bold'>Location:</span><span className='ml-1'>{location}</span></p>
