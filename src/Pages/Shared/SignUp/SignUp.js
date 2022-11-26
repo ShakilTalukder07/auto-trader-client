@@ -47,7 +47,7 @@ const SignUp = () => {
     const handleSignUp = data => {
         console.log(data);
         setSignUpError('');
-        createUser(data.email, data.password, data.user)
+        createUser(data.email, data.password, data.role)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -57,15 +57,15 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveUser(data.name, data.email, data.user)
+                        saveUser(data.name, data.email, data.role)
                     })
                     .catch(error => console.error(error))
             })
             .catch(error => setSignUpError(error))
     }
 
-    const saveUser = (name, email, user) => {
-        const userData = { name, email, user }
+    const saveUser = (name, email, role) => {
+        const userData = { name, email, role }
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -95,7 +95,7 @@ const SignUp = () => {
                     </div>
                     <label className="label"> <span className="label-text">SignUp as:</span></label>
                     <select className="select select-bordered w-full max-w-xs"
-                        {...register('user', { required: 'User is required' })}
+                        {...register('role', { required: 'role is required' })}
                     >
                         <option selected value='buyer' >Buyer</option>
                         <option value='seller'>Seller</option>

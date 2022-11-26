@@ -15,7 +15,6 @@ const BookingModal = ({ bookingCar, setBookingCar, refetch }) => {
         const itemPrice = form.itemPrice.value;
         const number = form.number.value;
         const meetingLocation = form.meetingLocation.value;
-        // console.log(name, email, itemName, itemPrice, number, meetingLocation);
 
         const booking = {
             userName: name,
