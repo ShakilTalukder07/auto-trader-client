@@ -1,17 +1,19 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 
 const AddAProduct = () => {
     const { register, handleSubmit, formState: { errors }, isLoading } = useForm();
     const imageHostKey = process.env.REACT_APP_imgbb_key
-
+    const navigate = useNavigate()
     const handleAddProduct = data => {
         console.log(data);
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image)
-        const url = (`https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`)
+        const url = (`https://api.imgbb.com/1/upload?key=${imageHostKey}`)
         fetch(url, {
             method: "POST",
             body: formData
@@ -19,44 +21,35 @@ const AddAProduct = () => {
             .then(res => res.json())
             .then(imgData => {
                 if (imgData.success) {
+                    // console.log(imgData.data.url);
                     const products = {
                         name: data.name,
                         title: data.title,
-
+                        price: data.price,
+                        condition: data.condition,
+                        number: data.number,
+                        location: data.location,
+                        newPrice: data.newPrice,
+                        purchaseYear: data.purchaseYear,
+                        image: imgData.data.url
                     }
+
+                    // save product information to database
+                    fetch('http://localhost:5000/products', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json',
+                            authorization: `bearer${localStorage.getItem('accessToken')}`
+                        },
+                        body: JSON.stringify(products)
+                    })
+                        .then(res => res.json())
+                        .then(result => {
+                            console.log(result);
+                            toast.success(`${data.title} is add successfully`)
+                            navigate('/dashboard/myproducts')
+                        })
                 }
-            })
-
-
-        // const form = data.target
-        // const name = form.name.value;
-        // const title = form.title.value;
-        // const price = form.price.value;
-        // const condition = form.condition.value;
-        // const number = form.number.value;
-        // const location = form.location.value;
-        // const newPrice = form.newPrice.value;
-        // const purchaseYear = form.purchaseYear.value;
-
-        // const addProduct = {
-        //     name,
-        //     title,
-        //     price,
-        //     condition,
-        //     number,
-        //     location,
-        //     newPrice,
-        //     purchaseYear
-        // }
-
-        fetch('http://localhost:5000/products', {
-            method: 'POST',
-
-            body: JSON.stringify(data)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
             })
     }
 
@@ -79,7 +72,7 @@ const AddAProduct = () => {
                     </div>
 
                     <div div className="form-control w-full max-w-xs" >
-                        <label className="label"> <span className="label-text">Product Category</span></label>
+                        <label className="label"> <span className="label-text">Brand Name</span></label>
                         <input {...register("name", {
                             required: 'category is required',
                         })} className="input input-bordered w-full max-w-xs" type="text" />

@@ -14,6 +14,7 @@ import LogIn from "../../Pages/Shared/LogIn/LogIn";
 import SignUp from "../../Pages/Shared/SignUp/SignUp";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import SellersRoute from "../SellersRoute/SellersRoute";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -64,12 +65,12 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/users')
             },
             {
-                path: '/dashboard/myproducts',
-                element: <SellersRoute><MyProducts></MyProducts></SellersRoute>
-            },
-            {
                 path: '/dashboard/addaproduct',
                 element: <SellersRoute><AddAProduct></AddAProduct></SellersRoute>
+            },
+            {
+                path: '/dashboard/myproducts',
+                element: <SellersRoute><MyProducts></MyProducts></SellersRoute>
             },
         ]
     }

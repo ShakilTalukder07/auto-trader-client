@@ -1,4 +1,3 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
