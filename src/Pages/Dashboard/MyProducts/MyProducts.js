@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 import Loading from '../../../components/Loading/Loading';
 import ConfirmationModal from '../../Shared/ConfirmationModal/ConfirmationModal';
 
@@ -11,11 +12,7 @@ const MyProducts = () => {
         setDeletingProduct(null)
     }
 
-    const handleDeleteDoctor = (doctor) =>{
-        
-    }
-
-    const { data: products, isLoading } = useQuery({
+    const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
             try {
@@ -31,6 +28,24 @@ const MyProducts = () => {
             }
         }
     })
+
+    const handleDeleteDoctor = product => {
+        console.log(product);
+        fetch(`http://localhost:5000/products/${product._id}`, {
+            method: "DELETE",
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                    refetch()
+                    toast.success('Product deleted successfully')
+                }
+            })
+    }
 
     if (isLoading) {
         return <Loading></Loading>
@@ -53,7 +68,7 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.length && products.map(product => <tr>
+                            products.length && products.map((product) => <tr>
                                 <th>
                                     <label onClick={() => setDeletingProduct(product)} htmlFor="confirmationModal" className="btn  btn-ghost bg-orange-600 btn-sm">Delete</label>
                                 </th>
@@ -82,9 +97,9 @@ const MyProducts = () => {
             {
                 deletingProduct && <ConfirmationModal
                     title={`Are you sure, you want to delete?`}
-                    successAction = {handleDeleteDoctor}
-                    successButtonName = "Delete"
-                    modalData = {deletingProduct}
+                    successAction={handleDeleteDoctor}
+                    successButtonName="Delete"
+                    modalData={deletingProduct}
                     closeModal={closeModal}
                 >
                 </ConfirmationModal>

@@ -21,7 +21,6 @@ const SignUp = () => {
         navigate('/')
     }
 
-
     const from = location.state?.from?.pathname || '/'
 
     const handleGoogle = () => {
@@ -66,6 +65,7 @@ const SignUp = () => {
 
     const saveUser = (name, email, role) => {
         const userData = { name, email, role }
+        console.log(userData);
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -97,7 +97,7 @@ const SignUp = () => {
                     <select className="select select-bordered w-full max-w-xs"
                         {...register('role', { required: 'role is required' })}
                     >
-                        <option selected value='buyer' >Buyer</option>
+                        <option value='buyer' >Buyer</option>
                         <option value='seller'>Seller</option>
                     </select>
                     <div className="form-control w-full max-w-xs">

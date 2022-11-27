@@ -14,7 +14,7 @@ const Categories = () => {
     return (
         <div className='my-6'>
             <div>
-                <p className='mx-8 my-6 text-3xl font-bold underline text-slate-600'>
+                <p className='mx-8 my-6 text-3xl font-bold text-slate-600'>
                     Product Categories
                 </p>
             </div>
