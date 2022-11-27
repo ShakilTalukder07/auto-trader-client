@@ -14,7 +14,7 @@ const Banner = () => {
                     <div className="py-6">
                         <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price</p>
                     </div>
-                    <div className='flex  gap-4'>
+                    <div className='flex my-10 gap-4'>
                         <Link to='' className="btn btn-ghost bg-green-300 m-2">Start Buying</Link>
                         <Link to='' className="btn btn-ghost bg-blue-400 m-2">Start Selling</Link>
                     </div>

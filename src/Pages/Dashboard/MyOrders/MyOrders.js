@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import { AuthContext } from '../../../Context/AuthProvider';
 
@@ -12,9 +12,9 @@ const MyOrders = () => {
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
-            const res = await fetch(url,{
-                headers:{
-                    authorization : `bearer ${localStorage.getItem('accessToken')}`
+            const res = await fetch(url, {
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
             })
             const data = await res.json()
@@ -31,7 +31,7 @@ const MyOrders = () => {
     return (
         <div>
             <div>
-                <h3 className="text-3xl underline mx-3 my-4">My Orders</h3>
+                <h3 className="text-3xl font-bold mx-3 my-4">My Orders</h3>
             </div>
             <div>
                 <div className="overflow-x-auto w-full">
@@ -66,7 +66,15 @@ const MyOrders = () => {
                                         <p>$<span>{booking.itemPrice}</span></p>
                                     </td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">Pay</button>
+                                        {
+                                            !booking.pain && <Link to=
+                                                {`/dashboard/payment/${booking._id}`}>
+                                                <button className="btn btn-ghost  bg-sky-300 btn-sm">Pay</button>
+                                            </Link>
+                                        }
+                                        {
+                                            booking.paid && <span className="btn btn-ghost  bg-green-200 btn-sm">Paid</span>
+                                        }
                                     </th>
                                 </tr>
                                 )
