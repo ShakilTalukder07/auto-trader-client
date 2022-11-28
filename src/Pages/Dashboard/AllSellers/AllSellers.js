@@ -1,20 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
 import { AuthContext } from '../../../Context/AuthProvider';
 
-const AllUsers = () => {
-    const { loading } = useContext(AuthContext)
-    const users = useLoaderData()
-    console.log(users);
 
-    if(loading){
+const AllSellers = () => {
+
+    const { loading } = useContext(AuthContext)
+
+    const [allSeller, setAllSeller] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/allSellers')
+            .then(res => res.json())
+            .then(data => {
+                setAllSeller(data);
+            })
+    }, [])
+
+    if (loading) {
         return <Loading></Loading>
     }
-
     return (
         <div>
-            <h3 className="text-3xl m-4">All Users</h3>
+            <h3 className=" text-3xl font-bold"> All Sellers</h3>
 
             <div className="overflow-x-auto">
                 <table className="table w-full">
@@ -28,7 +37,7 @@ const AllUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users.map((user, i) => <tr>
+                            allSeller.length && allSeller.map((user, i) => <tr>
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
@@ -38,9 +47,8 @@ const AllUsers = () => {
                     </tbody>
                 </table>
             </div>
-
         </div>
     );
 };
 
-export default AllUsers;
+export default AllSellers;

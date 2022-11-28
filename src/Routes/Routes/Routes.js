@@ -2,7 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AddAProduct from "../../Pages/Dashboard/AddAProduct/AddAProduct";
-import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
+import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import Payment from "../../Pages/Dashboard/Payment/Payment";
@@ -66,11 +67,6 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             },
             {
-                path: '/dashboard/allusers',
-                element: <AllUsers></AllUsers>,
-                loader: () => fetch('http://localhost:5000/users')
-            },
-            {
                 path: '/dashboard/addaproduct',
                 element: <SellersRoute><AddAProduct></AddAProduct></SellersRoute>
             },
@@ -78,6 +74,14 @@ const router = createBrowserRouter([
                 path: '/dashboard/myproducts',
                 element: <SellersRoute><MyProducts></MyProducts></SellersRoute>
             },
+            {
+                path: '/dashboard/allSellers',
+                element:<AllSellers></AllSellers>
+            },
+            {
+                path: '/dashboard/allBuyers',
+                element:<AllBuyers></AllBuyers>
+            }
         ]
     }
 ])

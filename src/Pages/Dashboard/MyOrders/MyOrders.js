@@ -67,7 +67,7 @@ const MyOrders = () => {
                                     </td>
                                     <th>
                                         {
-                                            !booking.pain && <Link to=
+                                            !booking.paid && <Link to=
                                                 {`/dashboard/payment/${booking._id}`}>
                                                 <button className="btn btn-ghost  bg-sky-300 btn-sm">Pay</button>
                                             </Link>
