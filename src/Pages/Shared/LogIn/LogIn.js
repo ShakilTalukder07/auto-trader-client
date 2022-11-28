@@ -29,7 +29,7 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 navigate(from, { replace: true })
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch((error) => setLoginError(error.message));
     };
@@ -39,7 +39,7 @@ const Login = () => {
         githubLogin()
             .then((result) => {
                 navigate(from, { replace: true })
-                console.log(result.user);
+                // console.log(result.user);
             })
             .catch((error) => setLoginError(error.message));
     };
