@@ -29,7 +29,7 @@ const MyProducts = () => {
         }
     })
 
-    const handleDeleteDoctor = product => {
+    const handleDeleteProduct = product => {
         console.log(product);
         fetch(`http://localhost:5000/products/${product._id}`, {
             method: "DELETE",
@@ -97,7 +97,7 @@ const MyProducts = () => {
             {
                 deletingProduct && <ConfirmationModal
                     title={`Are you sure, you want to delete?`}
-                    successAction={handleDeleteDoctor}
+                    successAction={handleDeleteProduct}
                     successButtonName="Delete"
                     modalData={deletingProduct}
                     closeModal={closeModal}
