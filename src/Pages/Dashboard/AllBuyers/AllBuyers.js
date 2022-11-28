@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Loading from '../../../components/Loading/Loading';
 import BuyerDeletingModal from './BuyerDeletingModal';
 
 const AllBuyers = () => {
-    // const [allBuyer, setAllBuyer] = useState([])
+
     const [deletingBuyer, setDeletingBuyer] = useState(null)
 
     const closeModal = () => {
@@ -28,14 +28,6 @@ const AllBuyers = () => {
             }
         }
     })
-
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/allBuyers')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAllBuyer(data);
-    //         })
-    // }, [])
 
     const handleDeleteBuyer = buyer => {
         console.log(buyer);

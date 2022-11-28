@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
@@ -8,21 +9,30 @@ import SellerDeletingModal from './SellerDeletingModal';
 
 const AllSellers = () => {
 
-    const { loading } = useContext(AuthContext)
     const [deletingSeller, setDeletingSeller] = useState(null)
 
     const closeModal = () => {
         setDeletingSeller(null)
     }
-    const [allSeller, setAllSeller] = useState([])
 
-    useEffect(() => {
-        fetch('http://localhost:5000/allSellers')
-            .then(res => res.json())
-            .then(data => {
-                setAllSeller(data);
-            })
-    }, [])
+
+    const { data: sellers, isLoading, refetch } = useQuery({
+        queryKey: ['sellers'],
+        queryFn: async () => {
+            try {
+                const res = await fetch('http://localhost:5000/allSellers', {
+                    headers: {
+                        authorization: `bearer ${localStorage.getItem('accessToken')}`
+                    }
+                })
+                const data = await res.json()
+                return data;
+            } catch (error) {
+
+            }
+        }
+    })
+
 
     const handleDeleteSeller = seller => {
         console.log(seller);
@@ -35,13 +45,14 @@ const AllSellers = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // if (data.deletedCount > 0) {
-                //     toast.success('Seller deleted successfully')
-                // }
+                if (data.deletedCount > 0) {
+                    refetch()
+                    toast.success('Seller deleted successfully')
+                }
             })
     }
 
-    if (loading) {
+    if (isLoading) {
         return <Loading></Loading>
     }
 
@@ -57,15 +68,19 @@ const AllSellers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Status</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            allSeller.length && allSeller.map((seller, i) => <tr>
+                            sellers.length && sellers.map((seller, i) => <tr>
                                 <th>{i + 1}</th>
                                 <td>{seller.name}</td>
                                 <td>{seller.email}</td>
+                                <th> 
+                                <label className="btn  btn-ghost bg-green-300 btn-sm">Verify</label>
+                                </th>
                                 <th>
                                     <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmationModal" className="btn  btn-ghost bg-orange-600 btn-sm">Delete</label>
                                 </th>
