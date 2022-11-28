@@ -39,7 +39,7 @@ const AddAProduct = () => {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json',
-                            authorization: `bearer${localStorage.getItem('accessToken')}`
+                            // authorization: `bearer${localStorage.getItem('accessToken')}`
                         },
                         body: JSON.stringify(products)
                     })
