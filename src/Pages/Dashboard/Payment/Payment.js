@@ -16,7 +16,7 @@ const Payment = () => {
         <div>
             <h3 className="text-3xl font-bold mt-5 ml-4">Make Payment for: {itemName}</h3>
             <p className='text-xl mt-5 ml-4'>Please pay <strong>${itemPrice}</strong> for confirm your order.</p>
-            <div className='card w-96 bg-base-100 shadow-xl my-20 ml-4'>
+            <div className='card w-96 https://resala-server.vercel.app/ shadow-xl my-20 ml-4'>
                 <div className="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm

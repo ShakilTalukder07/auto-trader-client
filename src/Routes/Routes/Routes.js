@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:id',
                 element: <PrivateRoutes><EveryCategories></EveryCategories></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://resala-server.vercel.app/category/${params.id}`)
             }
         ]
     },
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <MyOrders></MyOrders>,
-                loader: () => fetch(`http://localhost:5000/cars`)
+                loader: () => fetch(`https://resala-server.vercel.app/cars`)
             },
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://resala-server.vercel.app/bookings/${params.id}`)
             },
             {
                 path: '/dashboard/addaproduct',
@@ -76,11 +76,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/allSellers',
-                element:<AllSellers></AllSellers>
+                element: <AdminRoute><AllSellers></AllSellers></AdminRoute>
             },
             {
                 path: '/dashboard/allBuyers',
-                element:<AllBuyers></AllBuyers>
+                element: <AdminRoute><AllBuyers></AllBuyers></AdminRoute>
             }
         ]
     }

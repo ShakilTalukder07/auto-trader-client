@@ -16,7 +16,7 @@ const MyProducts = () => {
         queryKey: ['products'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/products', {
+                const res = await fetch('https://resala-server.vercel.app/products', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -31,7 +31,7 @@ const MyProducts = () => {
 
     const handleDeleteProduct = product => {
         console.log(product);
-        fetch(`http://localhost:5000/products/${product._id}`, {
+        fetch(`https://resala-server.vercel.app/products/${product._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -53,7 +53,7 @@ const MyProducts = () => {
 
     return (
         <div>
-            <h3 className="text-3xl font-bold m-4">You have: {products?.length} products.</h3>
+            <h3 className="text-3xl font-bold m-4">You have: {products?.length} products</h3>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

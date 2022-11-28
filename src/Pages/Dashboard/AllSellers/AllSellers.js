@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
 import Loading from '../../../components/Loading/Loading';
-import { AuthContext } from '../../../Context/AuthProvider';
 import SellerDeletingModal from './SellerDeletingModal';
 
 
@@ -20,7 +18,7 @@ const AllSellers = () => {
         queryKey: ['sellers'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/allSellers', {
+                const res = await fetch('https://resala-server.vercel.app/allSellers', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -35,8 +33,7 @@ const AllSellers = () => {
 
 
     const handleDeleteSeller = seller => {
-        console.log(seller);
-        fetch(`http://localhost:5000/allSellers/${seller._id}`, {
+        fetch(`https://resala-server.vercel.app/allSellers/${seller._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -78,8 +75,8 @@ const AllSellers = () => {
                                 <th>{i + 1}</th>
                                 <td>{seller.name}</td>
                                 <td>{seller.email}</td>
-                                <th> 
-                                <label className="btn  btn-ghost bg-green-300 btn-sm">Verify</label>
+                                <th>
+                                    <label className="btn  btn-ghost bg-green-300 btn-sm">Verify</label>
                                 </th>
                                 <th>
                                     <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmationModal" className="btn  btn-ghost bg-orange-600 btn-sm">Delete</label>

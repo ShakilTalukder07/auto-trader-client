@@ -17,7 +17,7 @@ const SignUp = () => {
     const location = useLocation();
     const navigate = useNavigate()
 
-    if(token){
+    if (token) {
         navigate('/')
     }
 
@@ -66,7 +66,7 @@ const SignUp = () => {
     const saveUser = (name, email, role) => {
         const userData = { name, email, role }
         console.log(userData);
-        fetch('http://localhost:5000/users', {
+        fetch('https://resala-server.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -79,7 +79,7 @@ const SignUp = () => {
             })
     }
 
-    
+
 
     return (
         <div className='h-[800px] flex justify-center items-center'>

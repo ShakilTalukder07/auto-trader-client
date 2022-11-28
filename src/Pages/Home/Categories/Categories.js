@@ -6,7 +6,7 @@ const Categories = () => {
     const [categories, setCategory] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/category')
+        fetch('https://resala-server.vercel.app/category')
             .then(res => res.json())
             .then(data => setCategory(data))
     }, [])
@@ -20,10 +20,10 @@ const Categories = () => {
             </div>
             <div className='grid gap-4 grid-cols-1 lg:grid-cols-3 mx-8'>
                 {
-                    categories.map( category => <Catgo
-                    key={category._id}
-                    category={category}
-                    ></Catgo> )
+                    categories.map(category => <Catgo
+                        key={category._id}
+                        category={category}
+                    ></Catgo>)
                 }
             </div>
         </div>

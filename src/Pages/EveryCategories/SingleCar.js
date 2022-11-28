@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleCar = ({ car, setBookingCar }) => {
-    
+
     const { image,
         name,
         location,
@@ -13,7 +13,7 @@ const SingleCar = ({ car, setBookingCar }) => {
     } = car
 
     return (
-        <div className="card card-compact w-full bg-base-100 shadow-xl">
+        <div className="card card-compact w-full https://resala-server.vercel.app/ shadow-xl">
             <figure><img src={image} alt="Car" /></figure>
             <div className="card-body mx-7">
                 <h2 className="card-title">{name}</h2>
@@ -24,7 +24,7 @@ const SingleCar = ({ car, setBookingCar }) => {
                 <p><span className='font-bold'>Time It Get Posted:</span><span className='ml-1'>{time_it_posted}</span></p>
                 <p><span className='font-bold'>Seller Name:</span><span className='ml-1'>{seller_name}</span></p>
                 <div className="card-actions justify-end">
-                    <label onClick={()=>setBookingCar(car)}
+                    <label onClick={() => setBookingCar(car)}
                         htmlFor="booking-modal"
                         className="btn btn-ghost bg-slate-300"
                     >Book Now</label>

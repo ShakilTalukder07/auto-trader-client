@@ -16,7 +16,7 @@ const AllBuyers = () => {
         queryKey: ['buyers'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/allBuyers', {
+                const res = await fetch('https://resala-server.vercel.app/allBuyers', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -31,7 +31,7 @@ const AllBuyers = () => {
 
     const handleDeleteBuyer = buyer => {
         console.log(buyer);
-        fetch(`http://localhost:5000/allBuyers/${buyer._id}`, {
+        fetch(`https://resala-server.vercel.app/allBuyers/${buyer._id}`, {
             method: "DELETE",
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -80,13 +80,13 @@ const AllBuyers = () => {
             </div>
             {
                 deletingBuyer && <BuyerDeletingModal
-                title={`Are you sure, you want to delete?`}
-                successAction={handleDeleteBuyer}
-                successButtonName="Delete"
-                modalData={deletingBuyer}
-                closeModal={closeModal}
-            >
-            </BuyerDeletingModal>
+                    title={`Are you sure, you want to delete?`}
+                    successAction={handleDeleteBuyer}
+                    successButtonName="Delete"
+                    modalData={deletingBuyer}
+                    closeModal={closeModal}
+                >
+                </BuyerDeletingModal>
             }
         </div>
     );

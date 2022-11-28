@@ -13,7 +13,7 @@ const EveryCategories = () => {
 
     const { data: singleCars = [], refetch, isLoading } = useQuery({
         queryKey: ['singleCars', cars.name],
-        queryFn: () => fetch(`http://localhost:5000/cars/${cars.name}`)
+        queryFn: () => fetch(`https://resala-server.vercel.app/cars/${cars.name}`)
             .then(res => res.json())
     })
 
