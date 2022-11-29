@@ -27,8 +27,23 @@ const SignUp = () => {
         setError("");
         googleLogin()
             .then((result) => {
-                navigate(from, { replace: true })
                 console.log(result.user);
+                const userInfo = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    role: 'buyer'
+                }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then()
+
+                navigate(from, { replace: true })
             })
             .catch((error) => setError(error.message));
     };
@@ -37,8 +52,21 @@ const SignUp = () => {
         setError("");
         githubLogin()
             .then((result) => {
+                const userInfo = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    role: 'buyer'
+                }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                    .then(res => res.json())
+                    .then()
                 navigate(from, { replace: true })
-                console.log(result.user);
             })
             .catch((error) => setError(error.message));
     };
