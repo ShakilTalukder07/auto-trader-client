@@ -14,7 +14,7 @@ const AllSellers = () => {
     }
 
     const handleVerify = id => {
-        fetch(`http://localhost:5000/users/seller/${id}`, {
+        fetch(`https://resala-server.vercel.app/users/seller/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

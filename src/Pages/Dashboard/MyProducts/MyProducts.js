@@ -49,7 +49,7 @@ const MyProducts = () => {
 
     const handleAdvertise = (product) => {
         console.log(product);
-        fetch('http://localhost:5000/advertiseProduct', {
+        fetch('https://resala-server.vercel.app/advertiseProduct', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

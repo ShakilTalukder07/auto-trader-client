@@ -33,7 +33,7 @@ const Login = () => {
                     email: result.user.email,
                     role: 'buyer'
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://resala-server.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
@@ -56,7 +56,7 @@ const Login = () => {
                     email: result.user.email,
                     role: 'buyer'
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://resala-server.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
