@@ -1,9 +1,12 @@
 import React from 'react';
+import ServiceBanner from './ServiceBanner';
+import Tips from './Tips';
 
 const Service = () => {
     return (
         <div>
-            this page is for service and tips.
+            <ServiceBanner></ServiceBanner>
+            <Tips></Tips>
         </div>
     );
 };

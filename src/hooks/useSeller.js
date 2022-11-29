@@ -8,8 +8,8 @@ const useSeller = email => {
             fetch(`https://resala-server.vercel.app/users/${email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data.isSeller);
-                    setIsSeller(data.isSeller === 'true')
+                    // console.log(data.isSeller);
+                    setIsSeller(data.isSeller)
                     setSellerLoading(false)
                 })
         }

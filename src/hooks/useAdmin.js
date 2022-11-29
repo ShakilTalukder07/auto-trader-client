@@ -7,6 +7,7 @@ const useAdmin = () => {
         fetch('https://resala-server.vercel.app/admin')
             .then(res => res.json())
             .then(data => {
+                console.log(data[0].role === 'admin');
                 setIsAdmin(data[0].role === 'admin');
                 setAdminLoading(false)
             })

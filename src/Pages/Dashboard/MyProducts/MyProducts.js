@@ -47,6 +47,17 @@ const MyProducts = () => {
             })
     }
 
+    const handleAdvertise = (product) => {
+        console.log(product);
+        fetch(`https://resala-server.vercel.app/products/${product._id}`,{
+            method: "POST"
+        })
+        .then( res => res.json())
+        .then( data => {
+            console.log(data);
+        })
+    }
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -87,7 +98,7 @@ const MyProducts = () => {
                                 <td>${product.price}</td>
                                 <td><button className="btn btn-ghost btn-sm">Available</button></td>
                                 <th>
-                                    <button className="btn btn-ghost btn-sm">Advertise</button>
+                                    <button onClick={() => handleAdvertise(product)} className="btn btn-ghost bg-sky-300 btn-sm">Advertise</button>
                                 </th>
                             </tr>)
                         }
