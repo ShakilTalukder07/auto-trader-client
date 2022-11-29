@@ -58,8 +58,8 @@ const MyProducts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
-                    toast.success('Your item advertise successfully')
+                if (data.acknowledged) {
+                    toast.success('Your item is advertised')
                 }
                 console.log(data);
             })
@@ -105,7 +105,9 @@ const MyProducts = () => {
                                 <td>${product.price}</td>
                                 <td><button className="btn btn-ghost btn-sm">Available</button></td>
                                 <th>
-                                    <button onClick={() => handleAdvertise(product)} className="btn btn-ghost bg-sky-300 btn-sm">Advertise</button>
+                                    <button onClick={() => handleAdvertise(product)}
+                                        className="btn btn-ghost bg-sky-300 btn-sm">
+                                        Advertise</button>
                                 </th>
                             </tr>)
                         }

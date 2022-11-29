@@ -10,7 +10,7 @@ const Banner = () => {
                 <img src={car} alt='' className=" rounded-lg" />
                 </div>
                 <div className='w-1/2'>
-                    <h1 className="text-4xl font-bold">Welcome to Bangladesh’s largest wholesale platform for used cars.</h1>
+                    <h1 className="text-4xl font-bold">Welcome to Bangladesh’s largest car selling platform for buy and sell cars.</h1>
                     <div className="py-6">
                         <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price</p>
                     </div>

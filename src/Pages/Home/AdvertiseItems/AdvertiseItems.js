@@ -10,6 +10,7 @@ const AdvertiseItems = () => {
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
+    
     return (
         <div className='my-6'>
             <div>

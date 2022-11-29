@@ -13,6 +13,14 @@ const AllSellers = () => {
         setDeletingSeller(null)
     }
 
+    const handleVerify = id => {
+        fetch(`http://localhost:5000/users/seller/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        console.log(id);
+    }
 
     const { data: sellers, isLoading, refetch } = useQuery({
         queryKey: ['sellers'],
@@ -71,12 +79,19 @@ const AllSellers = () => {
                     </thead>
                     <tbody>
                         {
-                            sellers.length && sellers.map((seller, i) => <tr>
+                            sellers.length && sellers.map((seller, i) => <tr key={seller._id}>
                                 <th>{i + 1}</th>
                                 <td>{seller.name}</td>
                                 <td>{seller.email}</td>
                                 <th>
-                                    <label className="btn  btn-ghost bg-green-300 btn-sm">Verify</label>
+                                    {
+                                        seller?.status !== 'verified' &&
+                                        <label onClick={() => handleVerify(seller._id)} className="btn  btn-ghost bg-green-300 btn-sm">Verify</label>
+                                    }
+                                    {
+                                        seller?.status === 'verified' &&
+                                        <label onClick={() => handleVerify(seller._id)} className="btn  btn-ghost bg-sky-300 btn-sm">Verified</label>
+                                    }
                                 </th>
                                 <th>
                                     <label onClick={() => setDeletingSeller(seller)} htmlFor="confirmationModal" className="btn  btn-ghost bg-orange-600 btn-sm">Delete</label>
