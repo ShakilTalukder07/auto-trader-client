@@ -49,13 +49,20 @@ const MyProducts = () => {
 
     const handleAdvertise = (product) => {
         console.log(product);
-        fetch(`https://resala-server.vercel.app/products/${product._id}`,{
-            method: "POST"
+        fetch('https://resala-server.vercel.app/advertiseProduct', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(product)
         })
-        .then( res => res.json())
-        .then( data => {
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('You advertise this successfully')
+                }
+                console.log(data);
+            })
     }
 
     if (isLoading) {

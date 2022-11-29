@@ -17,6 +17,7 @@ import SignUp from "../../Pages/Shared/SignUp/SignUp";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import SellersRoute from "../SellersRoute/SellersRoute";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import BuyerRoute from "./BuyerRoute/BuyerRoute";
 
 const router = createBrowserRouter([
     {
@@ -57,8 +58,8 @@ const router = createBrowserRouter([
         errorElement: <DisplayError></DisplayError>,
         children: [
             {
-                path: '/dashboard',
-                element: <MyOrders></MyOrders>,
+                path: '/dashboard/myOrder',
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>,
                 loader: () => fetch(`https://resala-server.vercel.app/cars`)
             },
             {

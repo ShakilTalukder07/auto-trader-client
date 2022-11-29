@@ -1,18 +1,17 @@
-// import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-// const useBuyer = () => {
-//     const [isBuyer, setIsBuyer] = useState(false)
-//     const [isBuyerLoading, setBuyerLoading] = useState(true)
-//     useEffect(() => {
-//         fetch('https://resala-server.vercel.app/buyers')
-//             .then(res => res.json())
-//             .then(data => {
-//                 console.log(data)
-//                 // setIsBuyer(data[0].role === 'buyer');
-//                 // setBuyerLoading(false)
-//             })
-//     },)
-//     return [isBuyer, isBuyerLoading]
-// };
+const useBuyer = (email) => {
+    const [IsBuyer, setIsBuyer] = useState(false)
+    const [IsBuyerLoading, setBuyerLoading] = useState(true)
+    useEffect(() => {
+        fetch(`https://resala-server.vercel.app/buyer/${email}`)
+            .then(res => res.json())
+            .then(data => {
+                setIsBuyer(data.role)
+                setBuyerLoading(false)
+            })
+    }, [email])
+    return [IsBuyer, IsBuyerLoading]
+};
 
-// export default useBuyer;
+export default useBuyer;

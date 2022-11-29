@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 
-const useAdmin = () => {
-    const [isAdmin, setIsAdmin] = useState(false)
+const useAdmin = (email) => {
+
+    const [isAdmin, setIsAdmin] = useState('')
     const [isAdminLoading, setAdminLoading] = useState(true)
     useEffect(() => {
-        fetch('https://resala-server.vercel.app/admin')
+        fetch(`https://resala-server.vercel.app/admin/${email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data[0].role === 'admin');
-                setIsAdmin(data[0].role === 'admin');
+                setIsAdmin(data.role)
                 setAdminLoading(false)
             })
-    },)
+    }, [email])
     return [isAdmin, isAdminLoading]
 };
 
