@@ -65,6 +65,14 @@ const MyProducts = () => {
             })
     }
 
+    const handleUpdate = (id) => {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -86,7 +94,7 @@ const MyProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            products.length && products.map((product) => <tr>
+                            products.length && products.map((product) => <tr key={product._id}>
                                 <th>
                                     <label onClick={() => setDeletingProduct(product)} htmlFor="confirmationModal" className="btn  btn-ghost bg-orange-600 btn-sm">Delete</label>
                                 </th>
@@ -103,11 +111,33 @@ const MyProducts = () => {
                                     {product.title}
                                 </td>
                                 <td>${product.price}</td>
-                                <td><button className="btn btn-ghost btn-sm">Available</button></td>
+                                <td>
+                                    {
+                                        product.status !== 'sold' &&
+                                        <button onClick={() => handleUpdate(product._id)}
+                                            className="btn btn-ghost btn-sm">
+                                            Available</button>
+                                    }
+                                    {
+                                        product.status === 'sold' &&
+                                        <button onClick={() => handleUpdate(product._id)}
+                                            className="btn btn-ghost btn-sm">
+                                            Sold</button>
+                                    }
+                                </td>
                                 <th>
-                                    <button onClick={() => handleAdvertise(product)}
-                                        className="btn btn-ghost bg-sky-300 btn-sm">
-                                        Advertise</button>
+                                    {
+                                        product?.status === 'sold' &&
+                                        <button disabled onClick={() => handleAdvertise(product)}
+                                            className="btn btn-ghost bg-sky-300 btn-sm">
+                                            Advertise</button>
+                                    }
+                                    {
+                                        product?.status !== 'sold' &&
+                                        <button onClick={() => handleAdvertise(product)}
+                                            className="btn btn-ghost bg-sky-300 btn-sm">
+                                            Advertise</button>
+                                    }
                                 </th>
                             </tr>)
                         }

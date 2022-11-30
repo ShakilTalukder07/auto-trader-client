@@ -19,7 +19,6 @@ const AllSellers = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data))
-        console.log(id);
     }
 
     const { data: sellers, isLoading, refetch } = useQuery({
