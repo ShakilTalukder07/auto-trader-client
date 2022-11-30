@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import AdItemBookingModal from './AdItemBookingModal';
 import AdItems from './AdItems';
 
 const AdvertiseItems = () => {
 
     const [items, setItems] = useState('')
+    const [itemsModal, setItemsModal] = useState(null)
 
     useEffect(() => {
         fetch('https://resala-server.vercel.app/advertiseProduct')
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
-    
+
     return (
         <div className='my-6'>
             <div>
@@ -21,9 +23,17 @@ const AdvertiseItems = () => {
                     items.length && items.map(item => <AdItems
                         key={item._id}
                         item={item}
+                        setItemsModal={setItemsModal}
                     ></AdItems>)
                 }
             </div>
+            {
+                itemsModal &&
+                <AdItemBookingModal
+                    itemsModal={itemsModal}
+                    setItemsModal={setItemsModal}
+                ></AdItemBookingModal>
+            }
         </div>
     );
 };
