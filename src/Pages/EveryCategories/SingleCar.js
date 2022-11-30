@@ -13,7 +13,7 @@ const SingleCar = ({ car, setBookingCar }) => {
     } = car
 
     return (
-        <div className="card card-compact w-full https://resala-server.vercel.app/ shadow-xl">
+        <div className="card card-compact w-full  shadow-xl">
             <figure><img src={image} alt="Car" /></figure>
             <div className="card-body mx-7">
                 <h2 className="card-title">{name}</h2>
@@ -26,7 +26,7 @@ const SingleCar = ({ car, setBookingCar }) => {
                 <div className="card-actions justify-end">
                     <label onClick={() => setBookingCar(car)}
                         htmlFor="booking-modal"
-                        className="btn btn-ghost bg-slate-300"
+                        className="btn btn-accent w-full"
                     >Book Now</label>
                 </div>
             </div>

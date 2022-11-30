@@ -23,6 +23,8 @@ const MyOrders = () => {
     })
 
     const cars = useLoaderData()
+    console.log(cars);
+
 
     if (loading) {
         <Loading></Loading>

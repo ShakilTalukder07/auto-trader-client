@@ -9,7 +9,7 @@ const Catgo = ({ category }) => {
 
     return (
         <>
-            <div className="card w-96 https://resala-server.vercel.app/ image-full">
+            <div className="card w-96 image-full">
                 <figure><img src={background} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{title}</h2>

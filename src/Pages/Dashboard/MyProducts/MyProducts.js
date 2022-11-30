@@ -115,13 +115,13 @@ const MyProducts = () => {
                                     {
                                         product.status !== 'sold' &&
                                         <button onClick={() => handleUpdate(product._id)}
-                                            className="btn btn-ghost btn-sm">
+                                            className="btn btn-ghost bg-green-300 btn-sm">
                                             Available</button>
                                     }
                                     {
                                         product.status === 'sold' &&
                                         <button onClick={() => handleUpdate(product._id)}
-                                            className="btn btn-ghost btn-sm">
+                                            className="btn btn-ghost bg-orange-300 btn-sm">
                                             Sold</button>
                                     }
                                 </td>
