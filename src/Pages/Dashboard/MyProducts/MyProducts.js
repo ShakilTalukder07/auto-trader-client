@@ -66,7 +66,7 @@ const MyProducts = () => {
     }
 
     const handleUpdate = (id) => {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://resala-server.vercel.app/products/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
