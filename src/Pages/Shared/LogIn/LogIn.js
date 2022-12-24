@@ -83,8 +83,8 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center'>
-            <div className='w-96 p-7'>
+        <div className='h-[800px] flex justify-center items-center '>
+            <div className='w-96 p-7 shadow-2xl'>
                 <h2 className='text-2xl text-center font-bold'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
