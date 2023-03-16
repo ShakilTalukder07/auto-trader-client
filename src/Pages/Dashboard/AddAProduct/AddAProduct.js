@@ -59,11 +59,11 @@ const AddAProduct = () => {
 
     return (
         <div className='flex justify-center items-center'>
-            <div className='w-96 p-7'>
-                <h2 className='text-2xl text-center font-bold underline'>Add Product</h2>
-                <form onSubmit={handleSubmit(handleAddProduct)}>
+            <div className=''>
+                <h2 className='text-2xl text-center font-bold underline my-6'>Add Product</h2>
+                <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-3' onSubmit={handleSubmit(handleAddProduct)}>
 
-                    <div className="data-control w-full ma-w-xs">
+                    <div className="data-control w-full ">
                         <label className="label"> <span className="label-text">Product Image</span></label>
                         <input {...register("image", {
                             required: 'image is required'
@@ -71,7 +71,7 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-                    <div div className="form-control w-full max-w-xs" >
+                    <div div className="form-control w-full " >
                         <label className="label"> <span className="label-text">Brand Name</span></label>
                         <input {...register("name", {
                             required: 'category is required',
@@ -79,7 +79,7 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Product Name</span></label>
                         <input {...register("title", {
                             required: 'title is required',
@@ -87,7 +87,7 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Product Price</span></label>
                         <input {...register("price", {
                             required: 'price is required',
@@ -95,16 +95,18 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
+                    <div>
+                        <label className="label"> <span className="label-text">Product Condition:</span></label>
+                        <select className="select select-bordered w-full "
+                            {...register('condition', { required: 'condition is required' })}
+                        >
+                            <option selected value='excellent' >Excellent</option>
+                            <option value='good'>Good</option>
+                            <option value='fair'>Fair</option>
+                        </select>
+                    </div>
 
-                    <label className="label"> <span className="label-text">Product Condition:</span></label>
-                    <select className="select select-bordered w-full max-w-xs"
-                        {...register('condition', { required: 'condition is required' })}
-                    >
-                        <option selected value='excellent' >Excellent</option>
-                        <option value='good'>Good</option>
-                        <option value='fair'>Fair</option>
-                    </select>
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Mobile Number</span></label>
                         <input {...register("number", {
                             required: 'mobile number is required'
@@ -112,7 +114,7 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Location</span></label>
                         <input {...register("location", {
                             required: 'location number is required'
@@ -120,7 +122,7 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">New Price In Market</span></label>
                         <input {...register("newPrice", {
                             required: 'newPrice number is required'
@@ -128,15 +130,14 @@ const AddAProduct = () => {
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
 
-
-                    <div className="form-control w-full max-w-xs">
+                    <div className="form-control w-full ">
                         <label className="label"> <span className="label-text">Year of purchase</span></label>
                         <input {...register("purchaseYear", {
                             required: 'Year is required'
                         })} className="input input-bordered w-full max-w-xs" type="text" />
                         {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
                     </div>
-                    <input className='btn btn-info w-full mt-6' value="Add Product" type="submit" />
+                    <input className='btn btn-info  mt-9' value="Add Product" type="submit" />
                 </form>
             </div>
         </div>
