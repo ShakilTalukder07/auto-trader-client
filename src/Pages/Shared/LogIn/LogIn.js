@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
-// import useToken from '../../hooks/useToken';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import useToken from '../../../hooks/useToken';
 
@@ -83,7 +82,7 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center items-center '>
+        <div className='h-[500px] flex justify-center items-center '>
             <div className='w-96 p-7 shadow-2xl'>
                 <h2 className='text-2xl text-center font-bold'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>

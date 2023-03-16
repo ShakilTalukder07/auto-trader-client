@@ -6,7 +6,7 @@ const AdItemBookingModal = ({ itemsModal, setItemsModal }) => {
 
     const { user } = useContext(AuthContext)
     const { title, image, newPrice, number } = itemsModal
-    console.log(itemsModal);
+    // console.log(itemsModal);
 
     const handleItemBooking = event => {
         event.preventDefault()
