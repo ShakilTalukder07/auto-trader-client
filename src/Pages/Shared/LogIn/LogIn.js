@@ -109,7 +109,7 @@ const Login = () => {
                         {loginError && <p className='text-red-600'> {loginError}</p>}
                     </div>
                 </form>
-                <p className='my-4'>New to Resala?<Link to='/signup' className='text-accent'> Create new account</Link> </p>
+                <p className='my-4'>New to AutoTrader?<Link to='/signup' className='text-accent'> Create new account</Link> </p>
                 <div className="divider">OR</div>
                 <div className='mx-12'>
                     <button onClick={handleGoogle} className="btn btn-outline btn-primary"><span className='mr-2'><FaGoogle /></span>Google</button>
