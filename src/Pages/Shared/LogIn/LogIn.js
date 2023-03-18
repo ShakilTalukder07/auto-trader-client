@@ -110,11 +110,11 @@ const Login = () => {
                     </div>
                 </form>
                 <p className='my-4'>New to AutoTrader?<Link to='/signup' className='text-accent'> Create new account</Link> </p>
-                <div className="divider">OR</div>
-                <div className='mx-12'>
+                {/* <div className="divider">OR</div> */}
+                {/* <div className='mx-12'>
                     <button onClick={handleGoogle} className="btn btn-outline btn-primary"><span className='mr-2'><FaGoogle /></span>Google</button>
                     <button onClick={handleGithub} className="btn btn-outline btn-primary ml-2"><span className='mr-2'><FaGithub /></span>Github</button>
-                </div>
+                </div> */}
             </div>
         </div>
     );

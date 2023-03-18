@@ -2,7 +2,7 @@ import React from 'react';
 import './Banner.css'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import car1 from '../../../assets/slider/1.jpg';
@@ -22,33 +22,39 @@ const Banner = () => {
                 <div className='w-1/2'>
                     <Swiper
                         slidesPerView={"auto"}
-                        spaceBetween={30}
+                        spaceBetween={0}
                         pagination={{
                             clickable: true,
                         }}
-                        modules={[Pagination]}
+                        autoplay={{
+                            delay: 1500
+                        }}
+                        navigation
+                        loop={true}
+                        modules={[Pagination, Navigation, Autoplay]}
+
                         className="mySwiper"
                     >
-                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[680px]' /></SwiperSlide>
                     </Swiper>
 
                 </div>
                 <div className='w-1/2'>
                     <h1 className="text-4xl font-bold text-white">Welcome to Bangladesh’s largest car selling platform for buy and sell cars.</h1>
                     <div className="py-6 text-white">
-                        <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price</p>
+                        <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price.</p>
                     </div>
                     <div className='flex my-10 gap-4'>
                         <Link to='/login' className="btn btn-accent m-2">Start Buying</Link>
-                        <Link to='/login' className="btn btn-primary m-2">Start Selling</Link>
+                        <Link to='/login' className="btn btn-info m-2">Start Selling</Link>
                     </div>
                 </div>
             </div>
