@@ -2,7 +2,7 @@ import React from 'react';
 import './Banner.css'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import car1 from '../../../assets/slider/1.jpg';
@@ -21,23 +21,38 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className='w-1/2'>
                     <Swiper
-                        slidesPerView={"auto"}
-                        spaceBetween={30}
+                        // slidesPerView={"auto"}
+                        // spaceBetween={30}
                         pagination={{
                             clickable: true,
                         }}
-                        modules={[Pagination]}
+                        navigation loop={true}
+                        autoplay={{ delay: 1500 }}
+                        modules={[Pagination, Navigation, Autoplay]}
+
+                        // modules={[Pagination, Navigation, Autoplay]}
+
+                        // autoplay={{
+                        //     delay: 1500
+                        // }}
+                        // navigation
+                        // loop={true}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
+
                         className="mySwiper"
                     >
-                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
-                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
                     </Swiper>
 
                 </div>
