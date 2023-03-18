@@ -2,7 +2,7 @@ import React from 'react';
 import './Banner.css'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import car1 from '../../../assets/slider/1.jpg';
@@ -21,38 +21,23 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className='w-1/2'>
                     <Swiper
-                        // slidesPerView={"auto"}
-                        // spaceBetween={30}
+                        slidesPerView={"auto"}
+                        spaceBetween={30}
                         pagination={{
                             clickable: true,
                         }}
-                        navigation loop={true}
-                        autoplay={{ delay: 1500 }}
-                        modules={[Pagination, Navigation, Autoplay]}
-
-                        // modules={[Pagination, Navigation, Autoplay]}
-
-                        // autoplay={{
-                        //     delay: 1500
-                        // }}
-                        // navigation
-                        // loop={true}
-                        // pagination={{
-                        //     clickable: true,
-                        // }}
-
+                        modules={[Pagination]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
-                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[650px]' /></SwiperSlide>
+                        <SwiperSlide><img src={car6} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car2} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car8} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car9} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car5} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car1} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car7} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car3} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
+                        <SwiperSlide><img src={car4} alt='' className=' h-[530px] w-[680px]'/></SwiperSlide>
                     </Swiper>
 
                 </div>
@@ -62,8 +47,8 @@ const Banner = () => {
                         <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price</p>
                     </div>
                     <div className='flex my-10 gap-4'>
-                        <Link to='' className="btn btn-ghost bg-green-300 m-2">Start Buying</Link>
-                        <Link to='' className="btn btn-ghost bg-blue-400 m-2">Start Selling</Link>
+                        <Link to='/login' className="btn btn-accent m-2">Start Buying</Link>
+                        <Link to='/login' className="btn btn-primary m-2">Start Selling</Link>
                     </div>
                 </div>
             </div>
