@@ -21,8 +21,8 @@ const SingleCar = ({ car, setBookingCar }) => {
                 <p><span className='font-bold'>Original Price:</span><span className='ml-1'>${original_price}</span></p>
                 <p><span className='font-bold'>Resale Price:</span><span className='ml-1'>${resale_price}</span></p>
                 <p><span className='font-bold'>Years Of Use:</span><span className='ml-1'>{years_of_use}</span></p>
-                <p><span className='font-bold'>Time It Get Posted:</span><span className='ml-1'>{time_it_posted}</span></p>
-                <p><span className='font-bold'>Seller Name:</span><span className='ml-1'>{seller_name}</span></p>
+                {/* <p><span className='font-bold'>Time It Get Posted:</span><span className='ml-1'>{time_it_posted}</span></p>
+                <p><span className='font-bold'>Seller Name:</span><span className='ml-1'>{seller_name}</span></p> */}
                 <div className="card-actions justify-end">
                     <label onClick={() => setBookingCar(car)}
                         htmlFor="booking-modal"

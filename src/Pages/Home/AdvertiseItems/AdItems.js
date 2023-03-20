@@ -7,8 +7,8 @@ const AdItems = ({ item, setItemsModal }) => {
             <figure><img className='w-full h-60 ' src={image} alt="Car" /></figure>
             <div className="card-body">
                 <h2 className="card-title"><span className='font-bold'>Brand: {name}</span></h2>
-                <p>Model: {title}</p>
-                <p>Price: ${newPrice}</p>
+                <p><span className='font-bold'> Model: </span> {title}</p>
+                <p> <span className='font-bold'>Price:</span>  ${newPrice}</p>
                 {/* <p>Location: {location}</p> */}
                 <div className="card-actions justify-end">
                     <label onClick={() => setItemsModal( item )}
