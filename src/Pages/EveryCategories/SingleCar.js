@@ -16,11 +16,11 @@ const SingleCar = ({ car, setBookingCar }) => {
         <div className="card card-compact w-full  shadow-xl">
             <figure><img src={image} alt="Car" /></figure>
             <div className="card-body mx-7">
-                <h2 className="card-title">{name}</h2>
-                <p><span className='font-bold'>Location:</span><span className='ml-1'>{location}</span></p>
-                <p><span className='font-bold'>Original Price:</span><span className='ml-1'>${original_price}</span></p>
-                <p><span className='font-bold'>Resale Price:</span><span className='ml-1'>${resale_price}</span></p>
-                <p><span className='font-bold'>Years Of Use:</span><span className='ml-1'>{years_of_use}</span></p>
+                <h2 className=""><span className='font-bold'>Model:</span> {name}</h2>
+                {/* <p><span className='font-bold'>Location:</span><span className='ml-1'>{location}</span></p> */}
+                {/* <p><span className='font-bold'>Original Price:</span><span className='ml-1'>${original_price}</span></p> */}
+                <p><span className='font-bold'>Price:</span><span className='ml-1'>${resale_price}</span></p>
+                {/* <p><span className='font-bold'>Years Of Use:</span><span className='ml-1'>{years_of_use}</span></p> */}
                 {/* <p><span className='font-bold'>Time It Get Posted:</span><span className='ml-1'>{time_it_posted}</span></p>
                 <p><span className='font-bold'>Seller Name:</span><span className='ml-1'>{seller_name}</span></p> */}
                 <div className="card-actions justify-end">

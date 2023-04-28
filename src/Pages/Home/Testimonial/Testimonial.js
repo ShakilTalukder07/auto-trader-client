@@ -35,11 +35,11 @@ const Testimonial = () => {
         <div>
             <section className='my-16'>
                 <div>
-                    <h2 className="text-3xl mx-8 my-6 font-bold text-slate-600">What Clients Says</h2>
+                    <h2 className="text-3xl mx-8 my-6 font-bold text-slate-600">What Customers Says</h2>
                 </div>
 
                 <figure>
-                    <img className='w-12 lg:w-24' src={quote} alt="" />
+                    <img className='w-12 lg:w-24 mx-8' src={quote} alt="" />
                 </figure>
 
                 <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>

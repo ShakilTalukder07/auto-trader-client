@@ -5,21 +5,21 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
-import car1 from '../../../assets/slider/1.jpg';
-import car2 from '../../../assets/slider/2.jpg';
-import car3 from '../../../assets/slider/3.jpg';
-import car4 from '../../../assets/slider/4.jpg';
-import car5 from '../../../assets/slider/5.jpg';
-import car6 from '../../../assets/slider/6.jpg';
-import car7 from '../../../assets/slider/7.jpg';
-import car8 from '../../../assets/slider/8.jpg';
-import car9 from '../../../assets/slider/9.jpg';
+import car1 from '../../../assets/slider/1.png';
+import car2 from '../../../assets/slider/2.png';
+import car3 from '../../../assets/slider/3.png';
+import car4 from '../../../assets/slider/4.png';
+import car5 from '../../../assets/slider/5.png';
+import car6 from '../../../assets/slider/6.png';
+import car7 from '../../../assets/slider/7.png';
+import car8 from '../../../assets/slider/8.png';
+import car9 from '../../../assets/slider/9.png';
 
 const Banner = () => {
     return (
         <div className="hero mb-6 background ">
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className='w-1/2'>
+                <div className='w-full md:w-full lg:w-1/2'>
                     <Swiper
                         slidesPerView={"auto"}
                         spaceBetween={0}
@@ -47,7 +47,7 @@ const Banner = () => {
                     </Swiper>
 
                 </div>
-                <div className='w-1/2'>
+                <div className='w-full md:w-full lg:w-1/2'>
                     <h1 className="text-4xl font-bold text-white">Welcome to Bangladesh’s largest car selling platform for buy and sell cars.</h1>
                     <div className="py-6 text-white">
                         <p>We sale second hand cars. Best in condition also affordable in price. You may get your desire car with an affordable price.</p>

@@ -23,7 +23,7 @@ const EveryCategories = () => {
 
     return (
         <div>
-            <div className='grid gap-4 grid-cols-1 lg:grid-cols-3 my-12 mx-10'>
+            <div className='grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mx-8 my-12'>
                 {
                     singleCars?.length && singleCars?.map(car => <SingleCar
                         key={car._id}
