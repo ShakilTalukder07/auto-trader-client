@@ -1,12 +1,12 @@
-# Getting Start With Resala
+# Getting Start With AutoTrader
 
 Resala is a used car selling/ buying web application.
 
-livesite: (https://resala-5b266.web.app)
+livesite: (https://myautotrader.netlify.app/)
 
 Features of this website:
 
-1. RESALA, is a fully responsive web application.
+1. AutoTrader, is a fully responsive web application.
 2. Here, Users can create accounts as a buyer or sellers.
 3. Buyers can purchase products and pay for that products via card.
 4. The seller can add a product for sale. He can mark a product as it is available or sold. If the product is available, he can advertise that product on the home page.
