@@ -1,33 +1,100 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaEnvelope, FaFacebook, FaInstagram, FaMapMarkerAlt, FaPhone, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-[#232F3E] text-white">
-            <div>
-                <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fillRule="evenodd" clipRule="evenodd" className="fill-current"><path d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path></svg>
-                <p>All credit goes to AutoTrader industries Ltd.</p>
-            </div>
-            <div>
-                <span className="footer-title">Services</span>
-                <Link className="link link-hover">Branding</Link>
-                <Link className="link link-hover">Design</Link>
-                <Link className="link link-hover">Marketing</Link>
-                <Link className="link link-hover">Advertisement</Link>
-            </div>
-            <div>
-                <span className="footer-title">Company</span>
-                <Link className="link link-hover">About us</Link>
-                <Link className="link link-hover">Contact</Link>
-                <Link className="link link-hover">Jobs</Link>
-                <Link className="link link-hover">Press kit</Link>
-            </div>
-            <div>
-                <span className="footer-title">Legal</span>
-                <Link className="link link-hover">Terms of use</Link>
-                <Link className="link link-hover">Privacy policy</Link>
-                <Link className="link link-hover">Cookie policy</Link>
-            </div>
+            <footer>
+                <div className='py-7 px-5 '>
+                    <div className="max-w-screen-xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 lg:px-0 gap-6 items-baseline justify-between ">
+                            <div>
+                                <div>
+                                    <h4 className="text-xl capitalize mb-4 font-semibold">contact info</h4>
+                                    <div className='space-y-3 text-sm lg:text-md'>
+                                        <div className="flex items-center gap-3">
+                                            <FaMapMarkerAlt size={20} />
+                                            <span>Mohammadpur, Dhaka</span>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <FaEnvelope size={20} />
+                                            <span>autotrader@shop.com</span>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <FaPhone size={20} />
+                                            <span>+880168*******</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='mt-4'>
+                                    <h4 className="text-2xl capitalize mb-4 font-semibold">connect with autotrader</h4>
+                                    <ul className='navbar gap-3'>
+                                        <li> <Link to="https://www.facebook.com" target="_blank" ><FaFacebook size={24} /></Link> </li>
+                                        <li> <Link to="https://www.instagram.com" target="_blank" > <FaInstagram size={24} /> </Link> </li>
+                                        <li> <Link to="https://twitter.com" target='_blank' ><FaTwitter size={24} /></Link> </li>
+                                    </ul>
+                                    <p className='text-xs mt-3'>Copyright &copy; 2023 autotrader.</p>
+                                </div>
+                            </div>
+                            <div className=''>
+                                <h4 className="text-2xl capitalize mb-4 font-semibold">Shop Branches</h4>
+                                <ul>
+                                    <li>
+                                        InterContinental Dhaka
+                                    </li>
+                                    <li>
+                                        International Convention City Bashundhara (ICCB)
+                                    </li>
+                                    <li>
+                                        Bangabandhu International Conference Center
+                                    </li>
+                                    <li>
+                                        Pan Pacific Sonargaon Dhaka Hotel
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-2xl capitalize mb-4 font-semibold">recent participation on fair</h4>
+                                <div className="space-y-3">
+                                    <div className='flex items-center gap-3'>
+                                        <figure>
+                                            <img src="https://img.freepik.com/free-photo/beautiful-pink-decorated-wedding-serving-with-centerpiece-lightening-candles_8353-10052.jpg?w=740&t=st=1673432788~exp=1673433388~hmac=25afa30b5b45cd3c32351308d29aaae2ecd3989aa1f24ce16558d1444210be1a" alt="" className='w-20 h-20 rounded-md' />
+                                        </figure>
+                                        <div>
+                                            <p className=' capitalize'>Auto Fair</p>
+                                            <p>01 April 2023</p>
+                                        </div>
+                                    </div>
+                                    <div className='flex items-center gap-3'>
+                                        <figure>
+                                            <img src="https://img.freepik.com/free-photo/beautiful-pink-decorated-wedding-serving-with-centerpiece-lightening-candles_8353-10052.jpg?w=740&t=st=1673432788~exp=1673433388~hmac=25afa30b5b45cd3c32351308d29aaae2ecd3989aa1f24ce16558d1444210be1a" alt="" className='w-20 h-20 rounded-md' />
+                                        </figure>
+                                        <div>
+                                            <p className=' capitalize'>Auto Fair</p>
+                                            <p>03 April 2023</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='capitalize'>
+                                <h4 className="text-2xl  mb-4 font-semibold">Customer service</h4>
+                                <ul>
+                                    <li> <Link href='/'>Customer services</Link> </li>
+                                    <li> <Link href='/'>terms & conditions</Link> </li>
+                                    <li> <Link href='/'>FAQs</Link> </li>
+                                </ul>
+                                <div className='mt-4'>
+                                    <div className="flex items-center gap-6">
+                                        <img src="https://i.ibb.co/khpBckc/f67.png" alt="" className='h-16 w-16' />
+                                        <h4 className="text-2xl font-bold"> <span className='text-[#0EA5E9]'>Auto</span>Trader</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </footer>
     );
 };

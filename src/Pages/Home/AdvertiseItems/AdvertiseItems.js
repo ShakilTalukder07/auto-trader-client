@@ -18,7 +18,7 @@ const AdvertiseItems = () => {
             <div>
                 <h1 className='mx-8 my-6 text-3xl font-bold text-slate-600'>Hot Deals</h1>
             </div>
-            <div className='grid gap-4 grid-cols-1 lg:grid-cols-3 mx-8'>
+            <div className='grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mx-8'>
                 {
                     items.length && items.map(item => <AdItems
                         key={item._id}
