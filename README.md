@@ -1,6 +1,6 @@
 # Getting Start With AutoTrader
 
-Resala is a used car selling/ buying web application.
+Auto Trader is a used car selling/ buying web application.
 
 livesite: (https://myautotrader.netlify.app/)
 
